@@ -53,8 +53,10 @@ How to fill other `other_keys`, `en_keys` and `other_keys_mm`
    2. en: `y[];'z/` + `Y{}:"Z<>?` + `ˋ-=` + `~@#^&*()_+` (`ˋ` is replaced)
 4. Arrange it for plugin:
    1. Grouping:
-      de: `"üÜä°§" + 'ö;Ö:' + 'Ä"' + 'ß-/&^`+' + '?_' + '´=)(*' + 'zZyY'`
-      en: `"[{'~#" + ';<:>' + '"@' + '-/&^`+]' + '_?' + '=)(*}' + 'yYzZ'`
+      ```
+      de: "üÜä°§" + 'ö;Ö:' + 'Ä"' + 'ß-/&^`+' + '?_' + '´=)(*' + 'zZyY'
+      en: "[{'~#" + ';<:>' + '"@' + '-/&^`+]' + '_?' + '=)(*}' + 'yYzZ'
+      ```
    2. Part. Fill variable by symbols and utf-8, it will be translated in ascii:
       ```
       other_keys    = "üÜä°§" + "öÖ"  + 'Ä' + 'ß' + 'yY'
