@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # coding: utf-8
-# multiple_keyboard.py
+# multiple_keyboard.py. [ranger](https://github.com/ranger/ranger)
 
 #  ----------------------------------------------------------------------
-#  It is plugin ;) for ranger. It allows you to enable support input
+#  It is plugin for ranger ;). It allows you to enable support input
 #  commands for other keyboard layouts. By default, Russian and Ukrainian
 #  are supported. You can add or replace support for your keyboard
 #  layouts. To do this, fill in the following fields: other_keys, en_keys
@@ -16,12 +16,22 @@ import ranger.api
 HOOK_READY_OLD = ranger.api.hook_init
 
 other_keys    = "фисвуапршолдьтщзйкыіегмцчнябю.хъїжэєё'" + 'ФИСВУАПРШОЛДЬТЩЗЙКЫІЕГМЦЧНЯБЮ,ХЪЇЖЭЄЁʼ'
-en_keys       = "abcdefghijklmnopqrsstuvwxyz,./[]];''``" + 'ABCDEFGHIJKLMNOPQRSSTUVWXYZ<>?{}}:""~ʼ'              + '@#$%^&'
+en_keys       = "abcdefghijklmnopqrsstuvwxyz,./[]];''``" + 'ABCDEFGHIJKLMNOPQRSSTUVWXYZ<>?{}}:""~ʼ' \
+                '@#$%^&'
 other_keys_mm = '"№;%:?'
+
+
+## Example support for German keyboard layouts ##
+# other_keys    = "üÜä°§öÖ" + 'ÄßyY'
+# en_keys       = "[{'~#;:" + '"-zZ' \
+#                 ';:"------_====zZ'
+# other_keys_mm = '<>@/`^&+]?)(*}yY'
+
 
 ## Example support Ukrainian and Russian keyboard layouts ##
 # other_keys    = "фисвуапршолдьтщзйкыіегмцчнябю.хъїжэєё'" + 'ФИСВУАПРШОЛДЬТЩЗЙКЫІЕГМЦЧНЯБЮ,ХЪЇЖЭЄЁʼ'
-# en_keys       = "abcdefghijklmnopqrsstuvwxyz,./[]];''``" + 'ABCDEFGHIJKLMNOPQRSSTUVWXYZ<>?{}}:""~ʼ'              + '@#$%^&'
+# en_keys       = "abcdefghijklmnopqrsstuvwxyz,./[]];''``" + 'ABCDEFGHIJKLMNOPQRSSTUVWXYZ<>?{}}:""~ʼ' \
+#               + '@#$%^&'
 # other_keys_mm = '"№;%:?'
 
 ## Example way to swap keys ##
