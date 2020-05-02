@@ -83,7 +83,7 @@ So, `other_keys` and `en_keys` need for translate letters for utf-8 into ascii, 
 `other_keys_mm` need for merge keys for two or more keyboards layout (usually for intersection). Too may been used to translate ascii chars (fallback).
 
 ```
-Conversion German table
+Conversion German merge table
 |----+---------+--------|
 | KB | CHARS   | ACTION |
 |----+---------+--------|
