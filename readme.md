@@ -45,7 +45,7 @@ How to fill other `other_keys`, `en_keys` and `other_keys_mm`
       2. EN: `QWERTYUIOP{}ASDFGHJKL:"ZXCVBNM<>?` and up-numerical `~!@#$%^&*()_+`
 2. You can see equals hotkeys in column inputting. Deleting it...
    1. de: `zü+öäy-` and up-numerical `^ß´`
-   2. en: `y[];'z/` and up-numerical ``-=`
+   2. en: `y[];'z/` and up-numerical `ˋ-=` (`ˋ` is replaced)
    3. DE: `ZÜ*ÖÄY;:_` and up-numerical `°"§&/()=?ˋ` (`ˋ` is replaced)
    4. EN: `Y{}:"Z<>?` and up-numerical `~@#^&*()_+`
 3. Union variables and there are next:
