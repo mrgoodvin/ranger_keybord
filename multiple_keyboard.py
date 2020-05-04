@@ -21,18 +21,23 @@ en_keys       = "abcdefghijklmnopqrsstuvwxyz,./[]];''``" + 'ABCDEFGHIJKLMNOPQRSS
 other_keys_mm = '"№;%:?'
 
 
-## Example support for German keyboard layouts ##
-# other_keys    = "üÜä°§öÖ" + 'ÄßyY'
-# en_keys       = "[{'~#;:" + '"-zZ' \
-#                 ';:"------_====zZ'
-# other_keys_mm = '<>@/`^&+]?)(*}yY'
-
-
 ## Example support Ukrainian and Russian keyboard layouts ##
 # other_keys    = "фисвуапршолдьтщзйкыіегмцчнябю.хъїжэєё'" + 'ФИСВУАПРШОЛДЬТЩЗЙКЫІЕГМЦЧНЯБЮ,ХЪЇЖЭЄЁʼ'
 # en_keys       = "abcdefghijklmnopqrsstuvwxyz,./[]];''``" + 'ABCDEFGHIJKLMNOPQRSSTUVWXYZ<>?{}}:""~ʼ' \
 #               + '@#$%^&'
 # other_keys_mm = '"№;%:?'
+
+## Example support for German keyboard layouts ##
+# other_keys    = "üÜä°§öÖ" + 'ÄßyY'
+# en_keys       = "[{'~#;:" + '"-zy' \
+#                 ';:"------_====zy'
+# other_keys_mm = '<>@/`^&+]?)(*}yz'
+
+## Example support German, Ukrainian and Russian keyboard layouts ##
+# other_keys    = "фисвуапршолдьтщзйкыіегмцчнябю.хъїжэєё'" + 'ФИСВУАПРШОЛДЬТЩЗЙКЫІЕГМЦЧНЯБЮ,ХЪЇЖЭЄЁʼ' + "üÜä°§öÖ" + 'ÄßyY'
+# en_keys       = "abcdefghijklmnopqrsstuvwxyz,./[]];''``" + 'ABCDEFGHIJKLMNOPQRSSTUVWXYZ<>?{}}:""~ʼ' + "[{'~#;:" + '"-zy'\
+#               + '@#$%^&' + ';:"------_====zy'
+# other_keys_mm = '"№;%:?' + '<>@/`^&+]?)(*}yz'
 
 ## Example way to swap keys ##
 # other_keys    = "uj"
@@ -59,8 +64,8 @@ def handle_input(self):
         if i < len(en_keys): return ord(en_keys[i])
         return -1
 
-    def key_translate(keys):  # translate key from other_keys into en_keys
-        if not self.console.visible or self.console.question_queue:
+    def key_translate(keys, cv=not self.console.visible):  # translate key from other_keys into en_keys
+        if cv or self.console.question_queue:
             ch = b''.join([bytes.fromhex('{0:X}'.format(i)) for i in keys]).decode('utf-8')
             if not ch: return []
             if ch in other_keys:
@@ -98,7 +103,7 @@ def handle_input(self):
             keys.append(-1)
         elif keys[0] == 27:
             keys[0] = ALT_KEY
-            tkeys = key_translate(keys[1:])
+            tkeys = key_translate(keys[1:], True)
             if tkeys: keys = keys[0:1] + tkeys
         if self.settings.xterm_alt_key:
             if len(keys) == 2 and keys[1] in range(127, 256):
