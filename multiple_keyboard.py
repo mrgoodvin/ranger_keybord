@@ -65,7 +65,7 @@ def handle_input(self):
         return -1
 
     def key_translate(keys, cv=not self.console.visible):  # translate key from other_keys into en_keys
-        if cv or self.console.question_queue:
+        if keys[0]>=32 and (cv or self.console.question_queue):
             ch = b''.join([bytes.fromhex('{0:X}'.format(i)) for i in keys]).decode('utf-8')
             if not ch: return []
             if ch in other_keys:
