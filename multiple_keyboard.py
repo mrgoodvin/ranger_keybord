@@ -17,32 +17,32 @@ HOOK_READY_OLD = ranger.api.hook_init
 
 other_keys    = "фисвуапршолдьтщзйкыіегмцчнябю.хъїжэєё'" + 'ФИСВУАПРШОЛДЬТЩЗЙКЫІЕГМЦЧНЯБЮ,ХЪЇЖЭЄЁʼ'
 en_keys       = "abcdefghijklmnopqrsstuvwxyz,./[]];''``" + 'ABCDEFGHIJKLMNOPQRSSTUVWXYZ<>?{}}:""~ʼ' \
-                '@#$%^&'
-other_keys_mm = '"№;%:?'
-
+                '@#$^&'
+other_keys_mm = '"№;:?'
 
 ## Example support Ukrainian and Russian keyboard layouts ##
 # other_keys    = "фисвуапршолдьтщзйкыіегмцчнябю.хъїжэєё'" + 'ФИСВУАПРШОЛДЬТЩЗЙКЫІЕГМЦЧНЯБЮ,ХЪЇЖЭЄЁʼ'
 # en_keys       = "abcdefghijklmnopqrsstuvwxyz,./[]];''``" + 'ABCDEFGHIJKLMNOPQRSSTUVWXYZ<>?{}}:""~ʼ' \
-#               + '@#$%^&'
-# other_keys_mm = '"№;%:?'
+#               + '@#$^&'
+# other_keys_mm = '"№;:?'
 
 ## Example support for German keyboard layouts ##
-# other_keys    = "üÜä°§öÖ" + 'ÄßyY'
-# en_keys       = "[{'~#;:" + '"-zy' \
-#                 ';:"------_====zy'
-# other_keys_mm = '<>@/`^&+]?)(*}yz'
+# other_keys    = "üÜä°§öÖ" + 'Äß'
+# en_keys       = "[{'~#;:" + '"-' \
+#                 ';:"------_====zZ'
+# other_keys_mm = '<>@/`^&+]?)(*}yY'
 
 ## Example support German, Ukrainian and Russian keyboard layouts ##
-# other_keys    = "фисвуапршолдьтщзйкыіегмцчнябю.хъїжэєё'" + 'ФИСВУАПРШОЛДЬТЩЗЙКЫІЕГМЦЧНЯБЮ,ХЪЇЖЭЄЁʼ' + "üÜä°§öÖ" + 'ÄßyY'
-# en_keys       = "abcdefghijklmnopqrsstuvwxyz,./[]];''``" + 'ABCDEFGHIJKLMNOPQRSSTUVWXYZ<>?{}}:""~ʼ' + "[{'~#;:" + '"-zy'\
-#               + '@#$%^&' + ';:"------_====zy'
-# other_keys_mm = '"№;%:?' + '<>@/`^&+]?)(*}yz'
+# other_keys    = "фисвуапршолдьтщзйкыіегмцчнябю.хъїжэєё'" + 'ФИСВУАПРШОЛДЬТЩЗЙКЫІЕГМЦЧНЯБЮ,ХЪЇЖЭЄЁʼ' + "üÜä°§öÖ" + 'Äß'
+# en_keys       = "abcdefghijklmnopqrsstuvwxyz,./[]];''``" + 'ABCDEFGHIJKLMNOPQRSSTUVWXYZ<>?{}}:""~ʼ' + "[{'~#;:" + '"-'\
+#               + '@#$^&' + ';:"------_====zZ'
+# other_keys_mm = '"№;:?' + '<>@/`^&+]?)(*}yY'
 
 ## Example way to swap keys ##
-# other_keys    = "uj"
+# other_keys    = ""
+# en_keys       = "" \
+#                 "uj"
 # other_keys_mm = "ju"
-# en_keys       = "juuj"
 
 import os
 import sys

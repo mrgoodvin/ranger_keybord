@@ -27,9 +27,9 @@ Example for Ukrainian and Russian keyboard layouts
 |          |               |                                        |
 | S-keys   | en_keys       | ABCDEFGHIJKLMNOPQRSSTUVWXYZ<>?{}}:""~~ |
 | S-keys   | other_keys    | ФИСВУАПРШОЛДЬТЩЗЙКЫІЕГМЦЧНЯБЮ,ХЪЇЖЭЄЁʼ |
-|          |               | @#$%^&                                 |
+|          |               | @#$^&                                  |
 |          |               |                                        |
-| S-234567 | other_keys_mm | "№;%:?                                 |
+| S-23467  | other_keys_mm | "№;:?                                  |
 |----------+---------------+----------------------------------------|
 ```
 
@@ -59,21 +59,21 @@ How to fill other `other_keys`, `en_keys` and `other_keys_mm`
       ```
    2. Part. Fill variable by symbols and utf-8, it will be translated in ascii:
       ```
-      other_keys    = "üÜä°§" + "öÖ"  + 'Ä' + 'ß' + 'yY'
-      en_keys       = "[{'~#" + ";:"  + '"' + '-' + 'zZ'
+      other_keys    = "üÜä°§" + "öÖ"  + 'Ä' + 'ß'
+      en_keys       = "[{'~#" + ";:"  + '"' + '-'
       other_keys_mm = ''
       ```
    3. All. Adding merge and handling ascii (fallback):
       ```
-      other_keys    = "üÜä°§" + "öÖ"  + 'Ä' + 'ß' + 'yY'
-      en_keys       = "[{'~#" + ";:"  + '"' + '-' + 'zZ' \
+      other_keys    = "üÜä°§" + "öÖ"  + 'Ä' + 'ß'
+      en_keys       = "[{'~#" + ";:"  + '"' + '-' \
                       ';:"------_====zZ'
       other_keys_mm = '<>@/`^&+]?)(*}yY'
       ```
    4. Optimization:
       ```
-      other_keys    = "üÜä°§öÖ" + 'ÄßyY'
-      en_keys       = "[{'~#;:" + '"-zZ' \
+      other_keys    = "üÜä°§öÖ" + 'Äß'
+      en_keys       = "[{'~#;:" + '"-' \
                       ';:"------_====zZ'
       other_keys_mm = '<>@/`^&+]?)(*}yY'
       ```
