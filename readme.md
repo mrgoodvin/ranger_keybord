@@ -22,14 +22,14 @@ Example for Ukrainian and Russian keyboard layouts
 |----------+---------------+----------------------------------------|
 | KEYS     | VARIABLE      | PART OF VALUE                          |
 |----------+---------------+----------------------------------------|
-| keys     | en_keys       | abcdefghijklmnopqrsstuvwxyz,./[]];''`` |
-| keys     | other_keys    | фисвуапршолдьтщзйкыіегмцчнябю.хъїжэєё' |
+| keys     | en_keys       | abcdefghijklmnopqrsstuvwxyz,.[]];''``  |
+| keys     | other_keys    | фисвуапршолдьтщзйкыіегмцчнябюхъїжэєё'  |
 |          |               |                                        |
-| S-keys   | en_keys       | ABCDEFGHIJKLMNOPQRSSTUVWXYZ<>?{}}:""~~ |
-| S-keys   | other_keys    | ФИСВУАПРШОЛДЬТЩЗЙКЫІЕГМЦЧНЯБЮ,ХЪЇЖЭЄЁʼ |
-|          |               | @#$^&                                  |
+| S-keys   | en_keys       | ABCDEFGHIJKLMNOPQRSSTUVWXYZ<>{}}:""~~  |
+| S-keys   | other_keys    | ФИСВУАПРШОЛДЬТЩЗЙКЫІЕГМЦЧНЯБЮХЪЇЖЭЄЁʼ  |
+|          |               | @#$^&/?                                |
 |          |               |                                        |
-| S-23467  | other_keys_mm | "№;:?                                  |
+| S-23467  | other_keys_mm | "№;:?.,                                |
 |----------+---------------+----------------------------------------|
 ```
 
