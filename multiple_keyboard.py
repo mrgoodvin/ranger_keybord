@@ -93,7 +93,7 @@ def handle_input(self):
     if keys == 27 or (keys >= 128 and keys < 256):  # Handle special keys like ALT+X or unicode here
         keys = [keys]
         previous_load_mode = self.load_mode
-        self.set_load_mode(other_keys)
+        self.set_load_mode(True)
         for _ in range(4):
             getkey = self.win.getch()
             if getkey != -1: keys.append(getkey)
