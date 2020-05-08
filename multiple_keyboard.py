@@ -15,16 +15,16 @@ from __future__ import (absolute_import, division, print_function)
 import ranger.api
 HOOK_READY_OLD = ranger.api.hook_init
 
-other_keys    = "фисвуапршолдьтщзйкыіегмцчнябюхъїжэєё'" + 'ФИСВУАПРШОЛДЬТЩЗЙКЫІЕГМЦЧНЯБЮХЪЇЖЭЄЁʼ'
-en_keys       = "abcdefghijklmnopqrsstuvwxyz,.[]];''``" + 'ABCDEFGHIJKLMNOPQRSSTUVWXYZ<>{}}:""~ʼ' \
-                '@#$^&/?'
-other_keys_mm = '"№;:?.,'
+other_keys    = "фисвуапршолдьтщзйкыіегмцчнябюхъїжэєё'" + 'ФИСВУАПРШОЛДЬТЩЗЙКЫІЕГМЦЧНЯБЮХЪЇЖЭЄЁʼ' + '№'
+en_keys       = "abcdefghijklmnopqrsstuvwxyz,.[]];''``" + 'ABCDEFGHIJKLMNOPQRSSTUVWXYZ<>{}}:""~ʼ' + '#' \
+                '@$^&/?'
+other_keys_mm = '";:?.,'
 
 ## Example support Ukrainian and Russian keyboard layouts ##
-# other_keys    = "фисвуапршолдьтщзйкыіегмцчнябюхъїжэєё'" + 'ФИСВУАПРШОЛДЬТЩЗЙКЫІЕГМЦЧНЯБЮХЪЇЖЭЄЁʼ'
-# en_keys       = "abcdefghijklmnopqrsstuvwxyz,.[]];''``" + 'ABCDEFGHIJKLMNOPQRSSTUVWXYZ<>{}}:""~ʼ' \
-#                 '@#$^&/?'
-# other_keys_mm = '"№;:?.,'
+# other_keys    = "фисвуапршолдьтщзйкыіегмцчнябюхъїжэєё'" + 'ФИСВУАПРШОЛДЬТЩЗЙКЫІЕГМЦЧНЯБЮХЪЇЖЭЄЁʼ' + '№'
+# en_keys       = "abcdefghijklmnopqrsstuvwxyz,.[]];''``" + 'ABCDEFGHIJKLMNOPQRSSTUVWXYZ<>{}}:""~ʼ' + '#' \
+#                 '@$^&/?'
+# other_keys_mm = '";:?.,'
 
 ## Example support for German keyboard layouts ##
 # other_keys    = "üÜä°§öÖ" + 'Äß'
@@ -33,10 +33,10 @@ other_keys_mm = '"№;:?.,'
 # other_keys_mm = '<>@/`^&+]?)(*}yY'
 
 ## Example support German, Ukrainian and Russian keyboard layouts ##
-# other_keys    = "фисвуапршолдьтщзйкыіегмцчнябюхъїжэєё'" + 'ФИСВУАПРШОЛДЬТЩЗЙКЫІЕГМЦЧНЯБЮХЪЇЖЭЄЁʼ' + "üÜä°§öÖ" + 'Äß'
-# en_keys       = "abcdefghijklmnopqrsstuvwxyz,.[]];''``" + 'ABCDEFGHIJKLMNOPQRSSTUVWXYZ<>{}}:""~ʼ' + "[{'~#;:" + '"-'\
-#                 '@#$^&/?' + ';:"------_====zZ'
-# other_keys_mm = '"№;:?.,' + '<>@/`^&+]?)(*}yY'
+# other_keys    = "фисвуапршолдьтщзйкыіегмцчнябюхъїжэєё'" + 'ФИСВУАПРШОЛДЬТЩЗЙКЫІЕГМЦЧНЯБЮХЪЇЖЭЄЁʼ' + '№' + "üÜä°§öÖ" + 'Äß'
+# en_keys       = "abcdefghijklmnopqrsstuvwxyz,.[]];''``" + 'ABCDEFGHIJKLMNOPQRSSTUVWXYZ<>{}}:""~ʼ' + '#' + "[{'~#;:" + '"-' \
+#                 '@$^&/?' + ';:"------_====zZ'
+# other_keys_mm = '";:?.,' + '<>@/`^&+]?)(*}yY'
 
 ## Example way to swap keys ##
 # other_keys    = ""
@@ -69,7 +69,6 @@ def handle_input(self):
             ch = b''.join([bytes.fromhex('{0:X}'.format(i)) for i in keys]).decode('utf-8')
             if not ch: return []
             if ch in other_keys:
-                if ch in other_keys_mm: return [_key_is_merge_getter(ch)]
                 ch = en_keys[other_keys.index(ch)]
                 return [ord(ch)]
 

@@ -22,14 +22,14 @@ Example for Ukrainian and Russian keyboard layouts
 |----------+---------------+----------------------------------------|
 | KEYS     | VARIABLE      | PART OF VALUE                          |
 |----------+---------------+----------------------------------------|
-| keys     | en_keys       | abcdefghijklmnopqrsstuvwxyz,.[]];''``  |
-| keys     | other_keys    | фисвуапршолдьтщзйкыіегмцчнябюхъїжэєё'  |
+| keys     | en_keys       | abcdefghijklmnopqrsstuvwxyz,.[]];''``# |
+| keys     | other_keys    | фисвуапршолдьтщзйкыіегмцчнябюхъїжэєё'№ |
 |          |               |                                        |
 | S-keys   | en_keys       | ABCDEFGHIJKLMNOPQRSSTUVWXYZ<>{}}:""~~  |
 | S-keys   | other_keys    | ФИСВУАПРШОЛДЬТЩЗЙКЫІЕГМЦЧНЯБЮХЪЇЖЭЄЁʼ  |
-|          |               | @#$^&/?                                |
+|          |               | @$^&/?                                 |
 |          |               |                                        |
-| S-23467  | other_keys_mm | "№;:?.,                                |
+| S-23467  | other_keys_mm | ";:?.,                                 |
 |----------+---------------+----------------------------------------|
 ```
 
@@ -103,8 +103,12 @@ Conversion German merge table
 | DE | ´=)(*   | MERGE  |
 | A  | +++++   | =      |
 |----+---------+--------|
-| EN | ;<:>    |        |
-| DE | ö;Ö:    | MERGE  |
-| A  | -+-+    | ;      |
+| EN | ;<      |        |
+| DE | ö;      | MERGE  |
+| A  | -+      | ;      |
+|----+---------+--------|
+| EN | :>      |        |
+| DE | Ö:      | MERGE  |
+| A  | -+      | :      |
 |----+---------+--------|
 ```
