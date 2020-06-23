@@ -16,21 +16,11 @@ Installation plugin for your ranger
 multiple_keyboard.py must be copied to `~/.config/ranger/plugins`
 
 
-Example for Ukrainian and Russian keyboard layouts
+version 2.0
 ----------------------------------------------------------------------
+fix crash on some file names(preview lags input) with translate-keys navigation in list files:
 ```
-|----------+---------------+----------------------------------------|
-| KEYS     | VARIABLE      | PART OF VALUE                          |
-|----------+---------------+----------------------------------------|
-| keys     | en_keys       | abcdefghijklmnopqrsstuvwxyz,.[]];''``# |
-| keys     | other_keys    | фисвуапршолдьтщзйкыіегмцчнябюхъїжэєё'№ |
-|          |               |                                        |
-| S-keys   | en_keys       | ABCDEFGHIJKLMNOPQRSSTUVWXYZ<>{}}:""~~  |
-| S-keys   | other_keys    | ФИСВУАПРШОЛДЬТЩЗЙКЫІЕГМЦЧНЯБЮХЪЇЖЭЄЁʼ  |
-|          |               | @$^&/?                                 |
-|          |               |                                        |
-| S-23467  | other_keys_mm | ";:?.,                                 |
-|----------+---------------+----------------------------------------|
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xd0 in position 4: unexpected end of data
 ```
 
 How to fill other `other_keys`, `en_keys` and `other_keys_mm`
@@ -82,33 +72,39 @@ How to fill other `other_keys`, `en_keys` and `other_keys_mm`
 So, `other_keys` and `en_keys` need for translate letters for utf-8 into ascii, where translated char is a pair map `other_keys`, `en_keys`.
 `other_keys_mm` need for merge keys for two or more keyboards layout (usually for intersection). Too may been used to translate ascii chars (fallback).
 
+## Example support Ukrainian and Russian keyboard layouts
 ```
-Conversion German merge table
-|----+---------+--------|
-| KB | CHARS   | ACTION |
-|----+---------+--------|
-| EN | yYzZ    |        |
-| DE | zZyY    | MERGE  |
-| A  | ++++    | z      |
-|----+---------+--------|
-| EN | -/&^`+] |        |
-| DE | ß-/&^`+ | MERGE  |
-| A  | -++++++ | -      |
-|----+---------+--------|
-| EN | _?      |        |
-| DE | ?_      | MERGE  |
-| A  | ++      | _      |
-|----+---------+--------|
-| EN | =)(*}   |        |
-| DE | ´=)(*   | MERGE  |
-| A  | +++++   | =      |
-|----+---------+--------|
-| EN | ;<      |        |
-| DE | ö;      | MERGE  |
-| A  | -+      | ;      |
-|----+---------+--------|
-| EN | :>      |        |
-| DE | Ö:      | MERGE  |
-| A  | -+      | :      |
-|----+---------+--------|
+other_keys    = "фисвуапршолдьтщзйкыіегмцчнябюхъїжэєё'" + 'ФИСВУАПРШОЛДЬТЩЗЙКЫІЕГМЦЧНЯБЮХЪЇЖЭЄЁʼ' + '№'
+en_keys       = "abcdefghijklmnopqrsstuvwxyz,.[]];''``" + 'ABCDEFGHIJKLMNOPQRSSTUVWXYZ<>{}}:""~ʼ' + '#' \
+                '@$^&/&'
+other_keys_mm = '";:?.,'
 ```
+
+## Example support for German keyboard layouts
+```
+other_keys    = "üÜä°§öÖ" + 'Äß'
+en_keys       = "[{'~#;:" + '"-' \
+                ';:"------_====zZ'
+other_keys_mm = '<>@/`^&+]?)(*}yY'
+```
+
+## Example support German, Ukrainian and Russian keyboard layouts
+```
+other_keys    = "фисвуапршолдьтщзйкыіегмцчнябюхъїжэєё'" + 'ФИСВУАПРШОЛДЬТЩЗЙКЫІЕГМЦЧНЯБЮХЪЇЖЭЄЁʼ' + '№' + "üÜä°§öÖ" + 'Äß'
+en_keys       = "abcdefghijklmnopqrsstuvwxyz,.[]];''``" + 'ABCDEFGHIJKLMNOPQRSSTUVWXYZ<>{}}:""~ʼ' + '#' + "[{'~#;:" + '"-' \
+                '@$-&/&' + '$-"------&====zZ'
+other_keys_mm = '";:?.,' + '<>@/`^&+]_)(*}yY'
+```
+
+## Example way to swap keys
+```
+other_keys    = ""
+en_keys       = "" \
+                "uj"
+other_keys_mm = "ju"
+```
+
+Marge mode
+----------------------------------------------------------------------
+Unfortunately, in order to completely abandon the merge mode, we need to know the name of the keyboard layout when a key is pressed in a message for the program.
+It is assumed that this requires a modification of the Linux kernel and keyboard modules. But this would forever solve the input issue for all future console applications in any languages.

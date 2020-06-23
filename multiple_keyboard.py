@@ -17,32 +17,8 @@ HOOK_READY_OLD = ranger.api.hook_init
 
 other_keys    = "фисвуапршолдьтщзйкыіегмцчнябюхъїжэєё'" + 'ФИСВУАПРШОЛДЬТЩЗЙКЫІЕГМЦЧНЯБЮХЪЇЖЭЄЁʼ' + '№'
 en_keys       = "abcdefghijklmnopqrsstuvwxyz,.[]];''``" + 'ABCDEFGHIJKLMNOPQRSSTUVWXYZ<>{}}:""~ʼ' + '#' \
-                '@$^&/?'
-other_keys_mm = '";:?.,'
-
-## Example support Ukrainian and Russian keyboard layouts ##
-# other_keys    = "фисвуапршолдьтщзйкыіегмцчнябюхъїжэєё'" + 'ФИСВУАПРШОЛДЬТЩЗЙКЫІЕГМЦЧНЯБЮХЪЇЖЭЄЁʼ' + '№'
-# en_keys       = "abcdefghijklmnopqrsstuvwxyz,.[]];''``" + 'ABCDEFGHIJKLMNOPQRSSTUVWXYZ<>{}}:""~ʼ' + '#' \
-#                 '@$^&/?'
-# other_keys_mm = '";:?.,'
-
-## Example support for German keyboard layouts ##
-# other_keys    = "üÜä°§öÖ" + 'Äß'
-# en_keys       = "[{'~#;:" + '"-' \
-#                 ';:"------_====zZ'
-# other_keys_mm = '<>@/`^&+]?)(*}yY'
-
-## Example support German, Ukrainian and Russian keyboard layouts ##
-# other_keys    = "фисвуапршолдьтщзйкыіегмцчнябюхъїжэєё'" + 'ФИСВУАПРШОЛДЬТЩЗЙКЫІЕГМЦЧНЯБЮХЪЇЖЭЄЁʼ' + '№' + "üÜä°§öÖ" + 'Äß'
-# en_keys       = "abcdefghijklmnopqrsstuvwxyz,.[]];''``" + 'ABCDEFGHIJKLMNOPQRSSTUVWXYZ<>{}}:""~ʼ' + '#' + "[{'~#;:" + '"-' \
-#                 '@$^&/?' + ';:"------_====zZ'
-# other_keys_mm = '";:?.,' + '<>@/`^&+]?)(*}yY'
-
-## Example way to swap keys ##
-# other_keys    = ""
-# en_keys       = "" \
-#                 "uj"
-# other_keys_mm = "ju"
+                '@$^?/?'
+other_keys_mm = '";:&.,'
 
 import os
 import sys
@@ -71,8 +47,10 @@ def handle_input(self):
                 s = '{0:X}'.format(i)
                 if len(s)%2!=0: s = '0' + s
                 a.append(bytes.fromhex(s))
-            ch = b''.join(a).decode('utf-8')
-            if not ch: return []
+            try:
+                ch = b''.join(a).decode('utf-8')
+            except UnicodeDecodeError:
+                return []
             if ch in other_keys:
                 ch = en_keys[other_keys.index(ch)]
                 return [ord(ch)]
