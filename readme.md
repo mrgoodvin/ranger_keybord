@@ -104,7 +104,7 @@ en_keys       = "" \
 other_keys_mm = "ju"
 ```
 
-Marge mode
+Merge mode
 ----------------------------------------------------------------------
 Unfortunately, in order to completely abandon the merge mode, we need to know the name of the keyboard layout when a key is pressed in a message for the program.
 It is assumed that this requires a modification of the Linux kernel and keyboard modules. But this would forever solve the input issue for all future console applications in any languages.
